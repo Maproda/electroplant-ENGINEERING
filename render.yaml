@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: electroplant-engineering-web
+    env: docker
+    plan: free
+    repo: REPLACE_WITH_YOUR_GITHUB_REPO
+    branch: main
+    buildCommand: ""
+    startCommand: /start.sh
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings
+      - key: RENDER
+        value: "true"
+  - type: postgres
+    name: electroplant-engineering-db
+    plan: free
+    databaseName: electroplant
+    userName: postgres
+    password: ""
